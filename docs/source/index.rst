@@ -56,7 +56,7 @@ Use Cases
    gcs
    aws
    linux
-   windows
+   LocalFilesystemMaterialScienceUsecase
 
 Indices
 ----------------
