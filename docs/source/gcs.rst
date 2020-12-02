@@ -21,25 +21,21 @@ Install the ``osds`` package to retrieve data using ``ObjectStorageDataset`` cla
 
 	!pip install osds
 
-Here `NYC-TLC Trips <https://registry.opendata.aws/nyc-tlc-trip-records-pds/>`_, a large public dataset (consisting of more than 100M records of trips taken by taxis and for-hire vehicles in New York City) hosted on Amazon S3 is used to illustrate how a large dataset is imported from cloud services using OSDS.
+Here NYC-TLC Trips, a large public dataset (consisting of more than 100M records of trips taken by taxis and for-hire vehicles in New York City) hosted on Google Cloud Platform is used to illustrate how a large dataset is imported from cloud services using OSDS.
 
 A brief decription of the variables in the dataset is provided below:
 
 .. csv-table:: 
 	:header: "Variable	", "Name		", "Type", "Description"
 	:widths: 40, 50, 15, 200
-	
-	"Features (X)", "id", "character", "A unique identifier for each trip."
-	"Features (X)", "vendor_id", "integer", "A code indicating the provider associated with the trip record. There appears to be 2 taxi companies."
-	"Features (X)", "pickup_datetime", "character", "The date and time when the meter was engaged. This is currently a combination of date and time."
-	"Features (X)", "dropoff_datetime", "character", "The date and time when the meter was disengaged. This is a combination of date and time."
-	"Features (X)", "passenger_count", "integer", "The number of passengers in the vehicle (driver entered value). This is a count from upto 9."
-	"Features (X)", "pickup_longitude", "numeric", "The longitude where the meter was engaged. These are geographical coordinates."
-	"Features (X)", "pickup_latitude", "numeric", "The latitude where the meter was engaged."
-	"Features (X)", "dropoff_longitude", "numeric", "The longitude where the meter was disengaged."
-	"Features (X)", "dropoff_latitude", "numeric", "The latitude where the meter was disengaged."
-	"Features (X)", "store_and_fwd_flag", "character", "This flag indicates whether the trip record was held in vehicle memory before sending to the vendor because the vehicle did not have a connection to the server. Y=store and forward; N=not a store and forward trip."
-	"Target (y)", "fare_amount", "integer", "Taxi fare at the end of the trip."
+
+	"Features (X)", "dayofweek", "numeric", "The day of week when the meter was engaged."
+	"Features (X)", "hourofday", "numeric", "The hour of the day when the meter was engaged."
+	"Features (X)", "pickuplon", "numeric", "The longitude where the meter was engaged. These are geographical coordinates."
+	"Features (X)", "pickuplat", "numeric", "The latitude where the meter was engaged."
+	"Features (X)", "dropofflon", "numeric", "The longitude where the meter was disengaged."
+	"Features (X)", "dropofflat", "numeric", "The latitude where the meter was disengaged."
+	"Target (y)", "fare_amount", "numeric", "Taxi fare at the end of the trip."
 	
 To access datasets from Google Cloud Storage using ``ObjectStorageDataset`` in an efficient way, we specify the URL-style glob named parameter of the OSDS class starting with ``f"gcs://``.
 
